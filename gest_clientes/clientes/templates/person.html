@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listagem de Pessoas</title>
+</head>
+<body>
+
+<ol>
+    {% for pessoa in pessoas %}
+         <li>
+             <a href="{% url 'atualizar' pessoa.id %}">{{ pessoa.first_name }}</a>
+             <a href="{% url 'deletar' pessoa.id %}"> Deletar</a>
+         </li>
+    {% endfor %}
+</ol>
+<form  action="{% url 'cadastrar' %}">
+    <button type="submit"> Novo Cadastro </button>
+</form>
+
+</body>
+</html>
