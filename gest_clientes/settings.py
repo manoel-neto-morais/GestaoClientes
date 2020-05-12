@@ -44,7 +44,7 @@ ROOT_URLCONF = 'gest_clientes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,3 +109,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'media'
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = 'listar'

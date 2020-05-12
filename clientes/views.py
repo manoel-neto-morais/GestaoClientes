@@ -1,12 +1,15 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404 #o método get_object_or_404 recupera o elemento do banco
 from .models import Person #importação do model contendo o banco de dados pretendido
 from .forms import FormularioPessoas
 
+@login_required
 def persons_list(request):
     persons = Person.objects.all() #variável persons recebera tod o conteudo do model Person.
 
     return render(request, 'person.html', {'pessoas': persons}) #retornando o template juntamente com a variável persons
 
+@login_required
 def persons_new(request):
     # a variável form receberá o formulário referenciado.
     # O parâmetro request.POST informa que este formulário usará uma request através do method POST
@@ -20,6 +23,7 @@ def persons_new(request):
 
     return render(request, 'formulario_de_pessoas.html', {'form': form})
 
+@login_required
 def persons_update(request, id):
 
     # pessoa está recebendo o objeto do banco através do método get_object_or_404
@@ -39,6 +43,7 @@ def persons_update(request, id):
 
     return render(request, 'formulario_de_pessoas.html', {'form': form})
 
+@login_required
 def persons_delete(request, id):
     # pessoa está recebendo o objeto do banco através do método get_object_or_404
     # O primeiro parâmetro informa o model que sofrerá a busca
