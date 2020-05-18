@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clientes',
-    'home'
+    'home',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [
@@ -115,3 +116,7 @@ MEDIA_ROOT = 'media'
 LOGIN_REDIRECT_URL = 'home' #redireciona para a url desejada após a realização do login
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    'statics',
+]

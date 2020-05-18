@@ -1,21 +1,13 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %} {% load bootstrap %} {% block title %} Formulário de Pessoas {% endblock %} {% block body %}
 
-    <!--o formulario aponta para a url do django nemeada como 'cadastrar'-->
-    <!--O parametro enctype setado com este valor informa que arquivos poderão ser passados neste formulário para o banco de dados-->
-    <form   method="POST" enctype="multipart/form-data">
-        {% csrf_token %} <!--este comando garante vários níveis de segurança do formulário e é impressindível seu no uso de formulários-->
-        {{ form }} <!--chamada a variavel form que contem o formulário enviado pelo django-->
-        <button type="submit">Salvar</button>
-    </form>
+<!--o formulario aponta para a url do django nemeada como 'cadastrar'-->
+<!--O parametro enctype setado com este valor informa que arquivos poderão ser passados neste formulário para o banco de dados-->
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!--este comando garante vários níveis de segurança do formulário e é impressindível seu no uso de formulários-->
+    {{ form|bootstrap }}
+    <!--chamada a variavel form que contem o formulário enviado pelo django-->
+    <button type="submit" class="btn btn-dark">Salvar</button>
+</form>
 
-</body>
-</html>
+{% endblock %}

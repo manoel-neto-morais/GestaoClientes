@@ -1,14 +1,13 @@
-{% extends 'base.html' %}
-{% block title %} {% endblock %}
+{% extends 'base.html' %} {% load bootstrap %} {% block title %} {% endblock %} {% block body %}
 
-{% block body %}
 
+
+<div style="width: 400px; box-shadow: 2px 2px 3px black; display: block; position: absolute; left:35%; top: 5%; padding: 15px;">
     <h2>Login</h2>
-    <div style="wid"
     <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
+        {% csrf_token %} {{ form|bootstrap }}
+        <button style="position: relative; left: 40%;" type="submit" class="btn btn-dark">Login</button>
     </form>
+</div>
 
 {% endblock %}
